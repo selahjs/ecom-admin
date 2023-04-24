@@ -7,7 +7,7 @@ const Cards = () => {
     {/* https://tailwindcss.com/docs/width */}
       <Card
         imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-        imgSrc="https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+        imgSrc="https://i.ibb.co/0GFzTP4/Rectangle-131.png"
       >
         <a href="#">
           <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
