@@ -8,6 +8,9 @@ import NavbarC from "./components/NavbarC";
 import Hero from "./components/Hero";
 import Card from "./components/Cards";
 import Login from "./components/Login";
+import Checkout from "./components/Checkout";
+import FooterC from "./components/FooterC";
+import ProductReview from "./components/ProductReview";
 import "./App.css";
 
 function App() {
@@ -31,7 +34,10 @@ function App() {
               <Card />
             ))}
           </div>
-          <Login />
+          {/* <Login /> */}
+          {/* <Checkout /> */}
+          <ProductReview />
+          <FooterC />
           {/* <Pricing /> */}
           {/* <Table /> */}
           {/* {false ? "❤️" : "♡"} */}
