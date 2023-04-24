@@ -19,7 +19,7 @@ export default function NavbarC() {
         <Navbar.Link href="/navbars" active={true}>
           Home
         </Navbar.Link>
-        <Navbar.Link to="/navbars">Admin</Navbar.Link>
+        <Navbar.Link href="/navbars">Admin</Navbar.Link>
         <Navbar.Link href="/navbars">Contact</Navbar.Link>
         <Navbar.Link href="/navbars">
           <svg
