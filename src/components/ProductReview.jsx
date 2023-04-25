@@ -226,7 +226,7 @@ const ProductReview = () => {
             </div>
           </div>
           <div className="w-full flex justify-start items-start flex-col bg-gray-50 md:px-8 py-8">
-            <div className="flex flex-col md:flex-row flex justify-between w-full">
+            <div className="flex flex-col md:flex-row justify-between w-full">
               <div className="flex flex-row justify-between items-start">
                 <p className="text-xl md:text-2xl font-medium leading-normal text-gray-800">
                   Comfortable and minimal, just how I like it!
