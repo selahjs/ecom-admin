@@ -14,10 +14,12 @@ function App() {
   return (
     <>
       {loading ? (
-        <Button color="gray">
-          <Spinner  />
-          <span className="pl-3">Loading...</span>
-        </Button>
+        <div className="h-screen flex justify-center items-center bg-gray-300">
+          <Button color="gray">
+            <Spinner  />
+            <span className="pl-3">Loading...</span>
+          </Button>
+        </div>
       ) : (
         <div className="mx-10">
           <NavbarC />
@@ -25,7 +27,7 @@ function App() {
           <FooterC />
         </div>
       )}
-    </>
+      </>
   );
 }
 

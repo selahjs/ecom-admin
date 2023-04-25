@@ -4,7 +4,7 @@ import { Navbar, Avatar } from "flowbite-react";
 export default function NavbarC() {
   return (
     <Navbar fluid={true} rounded={true}>
-      <Navbar.Brand to="/navbars">
+      <Navbar.Brand to="/">
         <img
           src="https://flowbite.com/docs/images/logo.svg"
           className="mr-3 h-6 sm:h-9"
@@ -16,12 +16,12 @@ export default function NavbarC() {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link href="/navbars" active={true}>
+        <Navbar.Link href="/" active={true}>
           Home
         </Navbar.Link>
-        <Navbar.Link href="/navbars">Admin</Navbar.Link>
-        <Navbar.Link href="/navbars">Contact</Navbar.Link>
-        <Navbar.Link href="/navbars">
+        <Navbar.Link href="/">Admin</Navbar.Link>
+        <Navbar.Link href="/">Contact</Navbar.Link>
+        <Navbar.Link href="/login">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -37,7 +37,7 @@ export default function NavbarC() {
             />
           </svg>
         </Navbar.Link>
-        <Navbar.Link href="/navbars">
+        <Navbar.Link href="/checkout">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
