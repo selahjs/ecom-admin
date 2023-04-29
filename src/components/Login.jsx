@@ -3,7 +3,7 @@ import { Card, Label, TextInput, Button, Checkbox } from "flowbite-react";
 
 const Login = () => {
   return (
-    <div className="my-5 max-w-sm">
+    <div className="w-1/3">
       <Card>
         <form className="flex flex-col gap-4">
           <div>
