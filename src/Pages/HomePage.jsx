@@ -6,7 +6,6 @@ import Card from "../components/Cards";
 
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
-  
   setTimeout(() => {
     setLoading(false);
   }, 2000);
