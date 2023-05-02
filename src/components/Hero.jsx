@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Carousel } from "flowbite-react";
+import { SlideContext } from '../context/randomContext';
 
 
 const Hero = () => {
+  const {shouldSlide, toggleSlide} = useContext(SlideContext)
+  
   return (
     <div className="my-5 h-56 sm:h-64 xl:h-80 2xl:h-96">
     <Carousel
-        slide={false}
+        slide={shouldSlide}
         // slideInterval={5000} //if you det slideInterval slide will be 'true' by default
     >
         <img
