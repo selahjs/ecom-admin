@@ -15,8 +15,14 @@ const Login = () => {
   const dispatch = useDispatch();
 
   //then we pass an object specifying what type of action we want to take on the state/s
-  function login(){ dispatch({type: 'LOGIN', payload:{username:user.username, password:user.password}})}
-  function logout(){ dispatch({type: 'LOGOUT'})}
+  function login(e){ 
+    e.preventDefault()
+    dispatch({type: 'LOGIN', payload:{username:user.username, password:user.password}})
+  }
+  //not used yet
+  function logout(){
+     dispatch({type: 'LOGOUT'})
+  }
 
   function handleChange(e){
     const {name, value} = e.target
@@ -31,7 +37,7 @@ const Login = () => {
   return (
     <div className="w-1/3">
       <Card>
-        <div className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={login}>
           <div>
             <div className="mb-2 block">
               <Label htmlFor="email1" value="Your email" />
@@ -64,9 +70,9 @@ const Login = () => {
             <Checkbox id="remember" />
             <Label htmlFor="remember">Remember me</Label>
           </div>
-          <Button onClick={login} type="submit">Submit</Button>
+          <Button type="submit">Submit</Button>
           <p className="text-center text-green-400">{message}</p>
-        </div>
+        </form>
       </Card>
     </div>
   );
