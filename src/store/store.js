@@ -2,7 +2,7 @@ import { createStore } from "redux"
 
 //create a shared state and manipulate it using action type
 //the reducer always returns a state(new state) from what I know until now
-const reducerFn = (state={username:"username", password:"", message: ""}, action) =>{
+const reducerFn = (state={username:"username", password:"", message: "", shouldSlide: false}, action) =>{
     const user = {
         username: "one@one",
         password: "123",

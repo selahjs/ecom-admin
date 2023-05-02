@@ -14,6 +14,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    {/* the Provider below is from Redux */}
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
