@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Spinner, Button } from "flowbite-react";
 
 import Hero from "../components/Hero";
 import Card from "../components/Cards";
+import data from "../api/data";
 
 const HomePage = () => {
+  //for now there are no products in localStorage
+  const [products, setProducts] = useState(JSON.parse(localStorage.getItem('products')) || []);
+
+  useEffect(()=>{
+    setProducts(data)
+  }, [data])
+
   const [loading, setLoading] = useState(true);
   setTimeout(() => {
     setLoading(false);
   }, 2000);
-
+  const productElemnts = products.map((product,i)=>(
+    <Card key={i} data={product}/>
+  ))
   return (
     <>
       {loading ? (
@@ -23,9 +33,7 @@ const HomePage = () => {
         <div>
           <Hero />
           <div className="flex gap-4">
-            {[...Array(4)].map((item, i) => (
-              <Card key={i} />
-            ))}
+            {productElemnts}
           </div>
         </div>
       )}

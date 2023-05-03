@@ -12,7 +12,7 @@ export default function NavbarC() {
             alt="Flowbite Logo"
           />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Flowbite
+            FreeEcom
           </span>
         </Navbar.Brand>
       <Navbar.Toggle />
@@ -20,7 +20,7 @@ export default function NavbarC() {
         <Link to="/" >
           Home
         </Link>
-        <Link to="/">Admin</Link>
+        <Link to="/admin">Admin</Link>
         <Link to="/">Contact</Link>
         <Link to="/login">
           <svg

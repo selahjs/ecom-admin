@@ -1,11 +1,10 @@
 import { useState } from "react"
-import data from '../assets/data'
+import data from '../api/data'
 export default function Table(){
     const [selectAll, setSelectAll] = useState(false)
     const [tableData, setTableData] = useState(data);
 
     function handleChange(event) {
-        // console.log(event) //sentheticEvent
         setSelectAll(prevData=> {
             return !prevData
         })
@@ -16,7 +15,7 @@ export default function Table(){
         console.log(checked)
         setTableData(prevTableData => {
             return prevTableData.map(tableData=>{
-                    if(tableData.productName === name){
+                    if(tableData.productTitle === name){
                         return {
                            ...tableData,
                            [name]: checked
@@ -68,7 +67,7 @@ export default function Table(){
                                     Available
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Price
+                                    productPrice
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Weight
@@ -84,7 +83,7 @@ export default function Table(){
                                     <td className="w-4 p-4">
                                         <div className="flex items-center">
                                             <input
-                                            name={table.productName}
+                                            name={table.productTitle}
                                             onChange={toggleChecked}
                                             checked={table.selected}
                                             id={i} 
@@ -94,7 +93,7 @@ export default function Table(){
                                         </div>
                                     </td>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {table.productName}
+                                        {table.productTitle}
                                     </th>
                                     <td className="px-6 py-4">
                                         {table.color}
@@ -109,7 +108,7 @@ export default function Table(){
                                         {table.available}
                                     </td>
                                     <td className="px-6 py-4">
-                                        ${table.price}
+                                        ${table.productPrice}
                                     </td>
                                     <td className="px-6 py-4">
                                         {table.weight}
