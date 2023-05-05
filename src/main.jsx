@@ -6,7 +6,6 @@ import store from "./store/store";
 
 import App from './App'
 import LoginPage from "./Pages/LoginPage"
-import Table from './components/Table';
 import ErrorPage from "./error-page";
 import CheckoutPage from "./Pages/CheckoutPage";
 import Cart from './components/Cart';
@@ -14,6 +13,7 @@ import ProductDetail from './components/ProductDetail';
 import Invoice from './components/Invoice';
 import Layout from './components/Layout';
 import './index.css'
+import Admin from './Pages/Admin';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -25,7 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="*" element={<ErrorPage/>}/>
           <Route path="/" element={<Layout />}>
             <Route index element={<App/>}/>
-            <Route path="/admin" element={<Table />}/>
+            <Route path="/admin" element={<Admin />}/>
             <Route path="/login" element={<LoginPage />}/>
             <Route path="/cart" element={<Cart />}/>
             <Route path="/checkout" element={<CheckoutPage />}/>
