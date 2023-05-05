@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "flowbite-react";
+import { Link } from "react-router-dom"
 
 const Cards = (props) => {
   const data = props.data;
@@ -10,11 +11,11 @@ const Cards = (props) => {
         imgAlt={data.productTitle}
         imgSrc={data.imgUrl}
       >
-        <a href="#">
+        <Link to="/productDetailt">
           <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
             {data.productTitle}
           </h5>
-        </a>
+        </Link>
         <div className="mt-2.5 mb-5 flex items-center">
           {/* rating  */}
           {[...Array(data.productRating)].map((rating,i)=>(

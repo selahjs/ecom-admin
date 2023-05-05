@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const countries = ["China", "Russia", "UK"];
@@ -210,7 +211,9 @@ const Checkout = () => {
 
               <button className="mt-8 border border-transparent hover:border-gray-300 bg-gray-900 hover:bg-white text-white hover:text-gray-900 flex justify-center items-center py-4 rounded w-full">
                 <div>
-                  <p className="text-base leading-4">Pay $54652</p>
+                  <Link to="/invoice">
+                    <p className="text-base leading-4">Pay $54652</p>
+                  </Link>
                 </div>
               </button>
             </div>
