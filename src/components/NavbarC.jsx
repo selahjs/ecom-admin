@@ -23,7 +23,6 @@ export default function NavbarC() {
           Home
         </Link>
         <Link to="/admin">Admin</Link>
-        <Link to="/">Contact</Link>
         <Link to="/login">
           <svg
             xmlns="http://www.w3.org/2000/svg"

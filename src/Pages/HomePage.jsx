@@ -16,7 +16,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   setTimeout(() => {
     setLoading(false);
-  }, 2000);
+  }, 100);
   const productElemnts = products.map((product,i)=>(
     <Card key={i} data={product}/>
   ))

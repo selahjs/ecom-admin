@@ -61,16 +61,10 @@ export default function Table(){
                                     Category
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Accesories
-                                </th>
-                                <th scope="col" className="px-6 py-3">
                                     Available
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     productPrice
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Weight
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Action
@@ -102,16 +96,10 @@ export default function Table(){
                                         {table.category}
                                     </td>
                                     <td className="px-6 py-4">
-                                        {table.accessories}
-                                    </td>
-                                    <td className="px-6 py-4">
                                         {table.available}
                                     </td>
                                     <td className="px-6 py-4">
                                         ${table.productPrice}
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        {table.weight}
                                     </td>
                                     <td className="flex items-center px-6 py-4 space-x-3">
                                         <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>

@@ -7,7 +7,7 @@ User-Interface (UI)
 	- Products page
         - product card _/
         - product detail _/
-        - product container X
+        - product container X wait
 	- Checkout and Cart page
         - checkout page _/
         - cart page _/
@@ -17,9 +17,9 @@ Features-Implementation
 	#Project Architecture
 	- API
 	- Products + user CRUD
+	- Routing
 	- Pagination
 	- sort, filer, categorize
 	- Authentication
 	- Checkout and Cart
-	- Routing
 	- Login / SignUp feature

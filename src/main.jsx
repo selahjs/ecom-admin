@@ -22,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+            <Route path="*" element={<ErrorPage/>}/>
           <Route path="/" element={<Layout />}>
             <Route index element={<App/>}/>
             <Route path="/admin" element={<Table />}/>
