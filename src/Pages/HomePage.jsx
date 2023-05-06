@@ -6,17 +6,26 @@ import Card from "../components/Cards";
 import data from "../api/data";
 
 const HomePage = () => {
-  //for now there are no products in localStorage
-  const [products, setProducts] = useState(JSON.parse(localStorage.getItem('products')) || []);
+  //we get products from local storage
+  const [products, setProducts] = useState([]);
 
   useEffect(()=>{
-    setProducts(data)
+    setProducts(getData())
   }, [data])
 
   const [loading, setLoading] = useState(true);
   setTimeout(() => {
     setLoading(false);
   }, 100);
+
+  function getData(){
+    // fetch goes here
+    // for now we are getting data from localStorage
+    localStorage.setItem("products", JSON.stringify(data))
+    const productData = JSON.parse(localStorage.getItem("products"));
+    return productData
+  }
+
   const productElemnts = products.map((product,i)=>(
     <Card key={i} data={product}/>
   ))

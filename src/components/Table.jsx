@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-import data from '../api/data'
+// import data from '../api/data'
 import ModalC from "./ModalC";
 export default function Table(props){
     //modal configration
@@ -13,15 +13,19 @@ export default function Table(props){
     }
     //modal config ends here...
 
+    // getting data
+    const [tableData, setTableData] = useState([]);
+    useEffect(()=>{
+        setTableData(props.data)
+    }, [props.data])
+    
     const [selectAll, setSelectAll] = useState(false)
-    const [tableData, setTableData] = useState(data);
-
     function handleChange(event) {
         setSelectAll(prevData=> {
             return !prevData
         })
     }
-
+    
     function toggleChecked(event){
         const {name, checked} = event.target
         console.log(checked)
@@ -83,7 +87,7 @@ export default function Table(props){
                                 </th>
                             </tr>
                         </thead>
-                        {tableData.map((table,i)=>(
+                        {tableData && tableData.map((table,i)=>(
                             <tbody key={i}>
                                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <td className="w-4 p-4">
