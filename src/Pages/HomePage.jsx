@@ -21,13 +21,13 @@ const HomePage = () => {
   function getData(){
     // fetch goes here
     // for now we are getting data from localStorage
-    localStorage.setItem("products", JSON.stringify(data))
+    // localStorage.setItem("products", JSON.stringify(data))
     const productData = JSON.parse(localStorage.getItem("products"));
     return productData
   }
 
-  const productElemnts = products.map((product,i)=>(
-    <Card key={i} data={product}/>
+  const productElemnts = products.map((product)=>(
+    <Card key={product.id} data={product}/>
   ))
   return (
     <>

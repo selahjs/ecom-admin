@@ -1,15 +1,37 @@
-import React from "react";
+import React, {useState} from "react";
 import { Modal, Label, TextInput, Checkbox } from "flowbite-react";
 import Button from "./Button";
 
 const ModalC = (props) => {
   // the state of the modal is controlled in the parent i.e. the component that's calling the modal
+  const [formData, setFormData] = useState({
+    productTitle: "",
+    productPrice: "",
+    productCategory: "",
+    productStock: ""
+  })
+  console.log(formData)
+
+  function handleChange(e){
+    // e.stopPropagation();
+    const {name, value} = e.target;
+    setFormData(prevData=>{
+        return {
+          ...prevData,
+          [name] : value,
+        }
+      })
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+  }
   return (
     <React.Fragment>
       <Modal show={props.show} size="xl" popup={true} onClose={props.onClose}>
         <Modal.Header />
         <Modal.Body>
-            <form className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8">
+            <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8" onSubmit={handleSubmit}>
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 Add Products
               </h3>
@@ -17,61 +39,82 @@ const ModalC = (props) => {
               {/* Product name input */}
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="name" value="Product name" />
+                  <Label htmlFor="productTitle" value="Product name" />
                 </div>
                 <TextInput
-                  id="name"
+                  name="productTitle"
+                  id="productTitle"
                   placeholder="product name"
                   required={true}
+                  value={formData.productTitle}
+                  onChange={handleChange}
                 />
               </div>
 
               {/* Prodcut price input */}
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="price" value="Product price" />
+                  <Label htmlFor="productPrice" value="Product price" />
                 </div>
-                <TextInput 
-                  id="price"  
+                <TextInput
+                  name="productPrice"
+                  id="productPrice"  
                   placeholder="product price"
-                  required={true} />
+                  required={true} 
+                  value={formData.productPrice}
+                  onChange={handleChange} 
+                  />
               </div>
 
               {/* Product Category input */}
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="category" value="Product category" />
+                  <Label htmlFor="productCategory" value="Product category" />
                 </div>
-                <TextInput 
-                  id="category"  
+                <TextInput
+                  name="productCategory"
+                  id="productCategory"  
                   placeholder="product category"
-                  required={true} />
+                  required={true} 
+                  value={formData.productCategory}
+                  onChange={handleChange} 
+                  />
               </div>
 
               {/* Stock Category input */}
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="stock-amount" value="Stock amount" />
+                  <Label htmlFor="productStock" value="Stock amount" />
                 </div>
-                <TextInput 
-                  id="stock-amount"  
+                <TextInput
+                  name="productStock"
+                  id="productStock"  
                   placeholder="number of product in stock"
-                  required={true} />
+                  required={true} 
+                  value={formData.productStock}
+                  onChange={handleChange} 
+                  />
               </div>
 
-              {/* Stock input */}
+              {/* image input
               <div>
                 <div className="mb-2 block">
                   <Label htmlFor="image" value="Product image" />
                 </div>
-                <input id="image" type="file" required={true} />
-              </div>
+                <input
+                  name="imgUrl"
+                  value={formData.imgUrl}
+                  onChange={handleChange} 
+                  id="image" 
+                  type="file" 
+                  required={true} />
+              </div> */}
 
               {/* Add product button */}
               <div className="w-full">
                 <Button buttonName={props.buttonName} action="addProduct"/>
               </div>
-            </form>
+            </div>
         </Modal.Body>
       </Modal>
     </React.Fragment>
