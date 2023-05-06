@@ -1,13 +1,24 @@
 import React, {useState} from 'react'
 import Table from '../components/Table'
 import ModalC from '../components/ModalC';
+import Button from "../components/Button";
 
 const Admin = () => {
-    const [showModal, setShowModal] = useState(false);
+  const [show, setShow] = useState(false)
+  function onClick(){
+   setShow(true)
+  }
+
+  function onClose(){
+    setShow(false)
+  }
   return (
     <>
-      <ModalC />
-      <Table />
+      {/* the admin controls the add product button as well as the edit button on the table */}
+      <Button onClick={onClick} buttonName="Add Products"/>
+      {show && <ModalC show={show} onClick={onClick} onClose={onClose} buttonName="Add Products"/>}
+      
+      <Table onClick={onClick} show={show} onClose={onClose}/>
     </>
   )
 }

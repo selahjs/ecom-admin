@@ -1,6 +1,18 @@
 import { useState } from "react"
+
 import data from '../api/data'
-export default function Table(){
+import ModalC from "./ModalC";
+export default function Table(props){
+    //modal configration
+    const [show, setShow] = useState(false)
+    function onClick(){
+    setShow(true)
+    }
+    function onClose(){
+        setShow(false)
+    }
+    //modal config ends here...
+
     const [selectAll, setSelectAll] = useState(false)
     const [tableData, setTableData] = useState(data);
 
@@ -102,8 +114,9 @@ export default function Table(){
                                         ${table.productPrice}
                                     </td>
                                     <td className="flex items-center px-6 py-4 space-x-3">
-                                        <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                        <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                                        <button onClick={onClick} href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
+                                        {show &&<ModalC show={show} onClose={onClose} buttonName="Update product"/>}
+                                        <button href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
                                     </td>
                                 </tr>
                             </tbody>

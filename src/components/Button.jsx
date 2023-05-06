@@ -2,7 +2,7 @@ import React from 'react'
 
 const Button = (props) => {
   return (
-    <button className="ml-auto flex justify-center col-span-12 text-sm p-2 border rounded-lg bg-green-800 text-white "
+    <button className={`${props.buttonName === "Add Products" ? "ml-auto" : "mx-auto" } flex justify-center col-span-12 text-sm p-2 border rounded-lg bg-green-800 text-white`}
       onClick={props.onClick}>
         {props.buttonName === "Add Products" ?
         (<svg
