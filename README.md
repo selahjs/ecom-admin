@@ -1,5 +1,5 @@
 # ecom-admin
-##features to include
+## features to include
   - An admin panel to manipulate products 
   - A Client website
   - A backedn to manage website logic
