@@ -5,8 +5,8 @@ import { Link } from "react-router-dom"
 export default function NavbarC() {
   return (
     <Navbar fluid={true} rounded={true}>
-        <Link to="/">
-          <Navbar.Brand>
+        <Link to="/" className="flex">
+          {/* <Navbar.Brand href="/"> */}
             <img
               src="https://flowbite.com/docs/images/logo.svg"
               className="mr-3 h-6 sm:h-9"
@@ -15,7 +15,7 @@ export default function NavbarC() {
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
               FreeEcom
             </span>
-          </Navbar.Brand>
+          {/* </Navbar.Brand> */}
         </Link>
       <Navbar.Toggle />
       <Navbar.Collapse>
