@@ -13,7 +13,6 @@ const ModalC = (props) => {
   console.log(formData)
 
   function handleChange(e){
-    // e.stopPropagation();
     const {name, value} = e.target;
     setFormData(prevData=>{
         return {
@@ -39,11 +38,12 @@ const ModalC = (props) => {
               {/* Product name input */}
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="productTitle" value="Product name" />
+                  <Label  value="Product name" />
                 </div>
                 <TextInput
                   name="productTitle"
                   id="productTitle"
+                  key="productTitle"
                   placeholder="product name"
                   required={true}
                   value={formData.productTitle}
@@ -59,6 +59,7 @@ const ModalC = (props) => {
                 <TextInput
                   name="productPrice"
                   id="productPrice"  
+                  key="productPrice"  
                   placeholder="product price"
                   required={true} 
                   value={formData.productPrice}
@@ -74,6 +75,7 @@ const ModalC = (props) => {
                 <TextInput
                   name="productCategory"
                   id="productCategory"  
+                  key="productCategory"  
                   placeholder="product category"
                   required={true} 
                   value={formData.productCategory}
@@ -89,6 +91,7 @@ const ModalC = (props) => {
                 <TextInput
                   name="productStock"
                   id="productStock"  
+                  key="productStock"  
                   placeholder="number of product in stock"
                   required={true} 
                   value={formData.productStock}
