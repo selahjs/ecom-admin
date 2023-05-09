@@ -3,23 +3,27 @@ import { Spinner, Button } from "flowbite-react";
 
 import Hero from "../components/Hero";
 import Card from "../components/Cards";
-// import data from "../api/data";
 
 const HomePage = () => {
-  //we get products from local storage
+  //we get products from mockoon API
   const [products, setProducts] = useState([]);
-
+  const [error, setError] = useState("")
   useEffect(()=>{
     getData()
+    
+  }, [])
   
-  }, [products])
-  
+  console.log('home page')
   function getData(){
     fetch('http://localhost:3002/')
-      .then(res => res.json())
-      .then(data => {
-        setProducts(data)
-        localStorage.setItem("products", JSON.stringify(data))
+    .then(res => res.json())
+    .then(data => {
+      setProducts(data)
+      localStorage.setItem("products", JSON.stringify(data))
+    })
+    .catch(e=>{
+      console.log(e)
+      setError(e)
       })
   }
   
@@ -44,7 +48,7 @@ const HomePage = () => {
       ) : (
         <div>
           <Hero />
-          <div className="flex gap-4">
+          <div className="flex gap-4 overflow-auto">
             {productElemnts}
           </div>
         </div>

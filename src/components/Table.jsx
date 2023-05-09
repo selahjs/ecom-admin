@@ -5,8 +5,19 @@ import ModalC from "./ModalC";
 export default function Table(props){
     //modal configration
     const [show, setShow] = useState(false)
+
     function onClick(){
-    setShow(true)
+        setShow(true)
+    }
+
+    function onDelete(id){
+        // we can send delete request by concating id as a query string
+        // and we can update the local storage like this
+        const oldData = JSON.parse(localStorage.getItem("products"))
+        const newData = oldData.filter((data)=> data.id !== id)
+        localStorage.setItem("products", JSON.stringify(newData))
+        setTableData(newData)
+        // console.log(newData)
     }
     function onClose(){
         setShow(false)
@@ -122,7 +133,7 @@ export default function Table(props){
                                     <td className="flex items-center px-6 py-4 space-x-3">
                                         <button onClick={onClick} href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
                                         {show &&<ModalC show={show} onClose={onClose} buttonName="Update product"/>}
-                                        <button href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
+                                        <button onClick={()=>onDelete(table.id)} href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
                                     </td>
                                 </tr>
                             </tbody>

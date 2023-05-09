@@ -10,27 +10,47 @@ const ModalC = (props) => {
     productCategory: "",
     productStock: ""
   })
-  console.log(formData)
 
   function handleChange(e){
     const {name, value} = e.target;
     setFormData(prevData=>{
         return {
           ...prevData,
+          // props.data.length means the id of the next product to be added can be extracted from the last
+          // products id + 1...
+          id: props.data.length,
           [name] : value,
         }
       })
   }
 
-  function handleSubmit(e){
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData)
+    const response = await fetch('http://localhost:3002/products',{
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(formData)
+    })
+    const json = await response.json()
+
+    if(response.ok){
+        //in real life application when a client updates a data collection, the server sends the 
+        // new collection of data therefore the localStorage is updated with the new data
+        // but here we're mimicking that concept, i.e. updating the localStorage
+        const temp = JSON.parse(localStorage.getItem("products"))
+        temp.push(formData)
+        localStorage.setItem("products", JSON.stringify(temp))
+    }else{
+      console.log('error')
+    }
   }
   return (
     <React.Fragment>
       <Modal show={props.show} size="xl" popup={true} onClose={props.onClose}>
         <Modal.Header />
         <Modal.Body>
-            <div className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8" onSubmit={handleSubmit}>
+            <form className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8" onSubmit={handleSubmit}>
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 Add Products
               </h3>
@@ -83,7 +103,7 @@ const ModalC = (props) => {
                   />
               </div>
 
-              {/* Stock Category input */}
+              {/* Stock amount input */}
               <div>
                 <div className="mb-2 block">
                   <Label htmlFor="productStock" value="Stock amount" />
@@ -117,7 +137,7 @@ const ModalC = (props) => {
               <div className="w-full">
                 <Button buttonName={props.buttonName} action="addProduct"/>
               </div>
-            </div>
+            </form>
         </Modal.Body>
       </Modal>
     </React.Fragment>
