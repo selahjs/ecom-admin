@@ -3,7 +3,7 @@ Ecom features
 User-Interface (UI)
 	- Admin Panel
         - Dashboard _/ 
-        - Add / update modal X
+        - Add / update modal _/
 	- Products page
         - product card _/
         - product detail _/
@@ -16,10 +16,10 @@ User-Interface (UI)
 Features-Implementation
 	#Project Architecture
 	- Products + user CRUD
-	- API
-	- Routing
-	- Pagination
-	- sort, filer, categorize
+	- API ~ _/
+	- Routing ~ _/
+	- Pagination ~ _/
+	- search, sort, filer, categorize
 	- Authentication + Authorization
 	- Checkout and Cart
 	- Login / SignUp feature

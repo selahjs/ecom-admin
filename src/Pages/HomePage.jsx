@@ -8,12 +8,12 @@ const HomePage = () => {
   //we get products from mockoon API
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("")
+  
   useEffect(()=>{
     getData()
     
   }, [])
-  
-  console.log('home page')
+
   function getData(){
     fetch('http://localhost:3002/')
     .then(res => res.json())
@@ -32,7 +32,7 @@ const HomePage = () => {
     setLoading(false);
   }, 100);
 
-
+  // Card Element
   const productElemnts = products.map((product)=>(
     <Card key={product.id} data={product}/>
   ))

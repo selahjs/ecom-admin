@@ -3,14 +3,16 @@ import React, {useState, useEffect} from 'react'
 import Table from '../components/Table'
 import ModalC from '../components/ModalC';
 import Button from "../components/Button";
+import SearchInput from '../components/SearchInput';
 import NewModal from '../components/NewModal';
 import Pagination from '../components/Pagination';
 import data from '../api/data'
 
 const Admin = () => {
+  const [search, setSearch] = useState('');
   const [show, setShow] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(5)
+  const [postPerPage, setPostPerPage] = useState(10)
   const [tableData, setTableData] = useState([]);
 
   // Pagination Logic
@@ -42,12 +44,14 @@ const Admin = () => {
   return (
     <>
       {/* the admin controls the add product button as well as the edit button on the table */}
-      <Button onClick={onClick} buttonName="Add Products"/>
-      
+      <div className='flex items-center'>
+        <SearchInput setSearch={setSearch}/>
+        <Button onClick={onClick} buttonName="Add Products"/>
+      </div>
       {show && <ModalC show={show} onClick={onClick} onClose={onClose} buttonName="Add Products" data={tableData}/>}
       {/* <NewModal /> */}
       
-      <Table onClick={onClick} show={show} onClose={onClose} data={currentDatas}/>
+      <Table onClick={onClick} show={show} onClose={onClose} data={currentDatas} searchByName={search}/>
 
       {tableData.length > 0 && 
         <Pagination 
