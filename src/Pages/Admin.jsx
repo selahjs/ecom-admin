@@ -4,6 +4,7 @@ import Table from '../components/Table'
 import ModalC from '../components/ModalC';
 import Button from "../components/Button";
 import SearchInput from '../components/SearchInput';
+import Sort from '../components/Sort';
 import NewModal from '../components/NewModal';
 import Pagination from '../components/Pagination';
 import data from '../api/data'
@@ -46,6 +47,7 @@ const Admin = () => {
       {/* the admin controls the add product button as well as the edit button on the table */}
       <div className='flex items-center'>
         <SearchInput setSearch={setSearch}/>
+        <Sort />
         <Button onClick={onClick} buttonName="Add Products"/>
       </div>
       {show && <ModalC show={show} onClick={onClick} onClose={onClose} buttonName="Add Products" data={tableData}/>}
