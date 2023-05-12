@@ -108,7 +108,7 @@ export default function Table(props) {
               .filter((item) => {
                 return search === ""
                   ? item
-                  : item.productTitle.toLowerCase().includes(search);
+                  : item.productTitle.toLowerCase().startsWith(search);
               })
               .map((table) => (
                 <tbody key={table.id}>

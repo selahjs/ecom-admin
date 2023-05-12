@@ -3,7 +3,7 @@ Ecom features
 Features-Implementation
 	#Project Architecture
 	- Admin features
-		- react-Table
+		- react-Table / Admin dashboard
 		- login
 		- product crud
 	- User features
