@@ -4,6 +4,10 @@ Features-Implementation
 	#Project Architecture
 	- Admin features
 		- react-Table / Admin dashboard
+			- search _/
+			- sort _/
+			- filter 
+			- update and delete _/
 		- login
 		- product crud
 	- User features

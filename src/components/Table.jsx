@@ -2,14 +2,23 @@ import { useState, useEffect } from "react";
 
 // import data from '../api/data'
 import ModalC from "./ModalC";
+
 export default function Table(props) {
   //filter data
   const search = props.searchByName.toLowerCase();
-  //modal configration
   const [show, setShow] = useState(false);
+  const [tableData, setTableData] = useState([]);
+  const [selectAll, setSelectAll] = useState(false);
+  
+  //modal configration
   function onClick() {
     setShow(true);
   }
+
+  function onClose() {
+    setShow(false);
+  }
+  //modal config ends here...
 
   function onDelete(id) {
     // we can send delete request by concating id as a query string
@@ -18,49 +27,43 @@ export default function Table(props) {
     const newData = oldData.filter((data) => data.id !== id);
     localStorage.setItem("products", JSON.stringify(newData));
     setTableData(newData);
-    // console.log(newData)
   }
-  function onClose() {
-    setShow(false);
-  }
-  //modal config ends here...
 
   // getting data
-  const [tableData, setTableData] = useState([]);
   useEffect(() => {
     setTableData(props.data);
   }, [props.data]);
 
-  const [selectAll, setSelectAll] = useState(false);
-  function handleChange(event) {
-    setSelectAll((prevData) => {
-      return !prevData;
+  //select all checkbox handler
+  function selectAllToggle() {
+    setSelectAll((selected) => {
+      setTableData(prevData=> (
+        prevData.map(item=> (
+          {
+            ...item,
+            selected: !selected
+          }
+        ))
+      ))
+      return !selected;
+    });
+    
+  }
+
+  //individual item checkbox toggler
+  function toggleChecked(event,id) {
+    const { name, checked } = event.target;
+    setTableData(prevData => {
+      return prevData.map(item=>{
+        console.log(name, item.selected)
+        return {
+          ...item,
+          [name]: id === item.id? checked : item.selected
+        }
+      })
     });
   }
 
-  function toggleChecked(event) {
-    const { name, checked } = event.target;
-    console.log(checked);
-    setTableData((prevTableData) => {
-      return prevTableData.map((tableData) => {
-        if (tableData.productTitle === name) {
-          return {
-            ...tableData,
-            [name]: checked,
-          };
-        } else {
-          return tableData;
-        }
-      });
-    });
-  }
-  
-  // function toggle(event,source) {
-  //     const checkboxes = document.getElementsByName('checkbox-all-search');
-  //     console.log(event.target.checked)
-  //     for(var checkbox in checkboxes)
-  //       checkbox.checked = source.checked;
-  //   }
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="py-8 px-4 mx-auto relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -72,7 +75,7 @@ export default function Table(props) {
                   <input
                     name="selectAll"
                     checked={selectAll}
-                    onChange={handleChange}
+                    onChange={selectAllToggle}
                     id="checkbox-all-search"
                     type="checkbox"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
@@ -113,11 +116,13 @@ export default function Table(props) {
               .map((table) => (
                 <tbody key={table.id}>
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    
+                    {/* Checkbox */}
                     <td className="w-4 p-4">
                       <div className="flex items-center">
                         <input
-                          name={table.productTitle}
-                          onChange={toggleChecked}
+                          name={"selected"}
+                          onChange={(event)=>toggleChecked (event,table.id)}
                           checked={table.selected}
                           id="checkbox-table-search"
                           type="checkbox"
