@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 const Cards = (props) => {
   const data = props.data;
   return (
-    <div className="max-w-xs my-5"> 
+    <div className="w-1/4  my-5"> 
     {/* https://tailwindcss.com/docs/width */}
       <Card
         imgAlt={data.productTitle}

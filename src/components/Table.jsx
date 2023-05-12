@@ -54,7 +54,7 @@ export default function Table(props) {
       });
     });
   }
-
+  
   // function toggle(event,source) {
   //     const checkboxes = document.getElementsByName('checkbox-all-search');
   //     console.log(event.target.checked)

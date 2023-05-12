@@ -1,7 +1,7 @@
 import React from "react";
 import "flowbite"
 
-const Sort = () => {
+const Sort = (props) => {
   return (
     <div>
       <button
@@ -38,7 +38,7 @@ const Sort = () => {
         >
           <li>
             <a
-              href="#"
+              onClick={props.sortByPrice}
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
               Price
@@ -46,7 +46,7 @@ const Sort = () => {
           </li>
           <li>
             <a
-              href="#"
+              onClick={props.sortByName}
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
               Name
@@ -54,10 +54,10 @@ const Sort = () => {
           </li>
           <li>
             <a
-              href="#"
+              onClick={props.sortByID}
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >
-              Category
+              ID
             </a>
           </li>
         </ul>

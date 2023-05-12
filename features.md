@@ -1,21 +1,16 @@
 Ecom features
 .
-User-Interface (UI)
-	- Admin Panel
-        - Dashboard _/ 
-        - Add / update modal _/
-	- Products page
-        - product card _/
-        - product detail _/
-        - product container X wait
-	- Checkout and Cart page
-        - checkout page _/
-        - cart page _/
-	- Invoice page on new page _/
-	- Login / SignUp Page _/
 Features-Implementation
 	#Project Architecture
-	- Products + user CRUD
+	- Admin features
+		- react-Table
+		- login
+		- product crud
+	- User features
+		- Signup / Login
+		- add to cart
+		- checkout
+
 	- API ~ _/
 	- Routing ~ _/
 	- Pagination ~ _/
@@ -23,6 +18,21 @@ Features-Implementation
 	- Authentication + Authorization
 	- Checkout and Cart
 	- Login / SignUp feature
+
+User-Interface (UI)
+	- Admin Panel
+        - Dashboard _/ 
+        - Add / update modal _/
+	- Products page
+        - product card _/
+        - product detail _/
+        - product container _/ using css overflow
+	- Checkout and Cart page
+        - checkout page _/
+        - cart page _/
+	- Invoice page on new page _/
+	- Login / SignUp Page _/
+
 .
 ------------------------------------------------------------------------------------------------------------------
 $how do you become better at your craft:
