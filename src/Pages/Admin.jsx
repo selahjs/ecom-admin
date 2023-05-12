@@ -13,7 +13,7 @@ const Admin = () => {
   const [search, setSearch] = useState('');
   const [show, setShow] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
-  const [postPerPage, setPostPerPage] = useState(10)
+  const [postPerPage, setPostPerPage] = useState(7)
   const [tableData, setTableData] = useState([]);
 
   // Pagination Logic
@@ -29,9 +29,11 @@ const Admin = () => {
 
   // Pagination methods
   function onPreviousePage(){
+    if(currentPage > 1)
     setCurrentPage(prevPage => prevPage - 1 )
   }
   function onNextPage(){
+    if(currentPage !== totalPages)
     setCurrentPage(prevPage => prevPage + 1)
   }
   function goToPage(pageNumber){
