@@ -89,7 +89,7 @@ export default function Table(props) {
                 Product name
               </th>
               <th scope="col" className="px-6 py-3">
-                Color
+                Quantity
               </th>
               <th scope="col" className="px-6 py-3">
                 Category
@@ -144,7 +144,7 @@ export default function Table(props) {
                     >
                       {table.productTitle}
                     </th>
-                    <td className="px-6 py-4">{table.productColor}</td>
+                    <td className="px-6 py-4">{table.productStock}</td>
                     <td className="px-6 py-4">{table.productCategory}</td>
                     <td className="px-6 py-4">{table.available}</td>
                     <td className="px-6 py-4">${table.productPrice}</td>

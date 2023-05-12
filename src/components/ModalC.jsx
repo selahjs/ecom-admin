@@ -8,7 +8,8 @@ const ModalC = (props) => {
     productTitle: "",
     productPrice: "",
     productCategory: "",
-    productStock: ""
+    productStock: "",
+    available: "Yes"
   })
 
   function handleChange(e){

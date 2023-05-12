@@ -6,10 +6,11 @@ Features-Implementation
 		- react-Table / Admin dashboard
 			- search _/
 			- sort _/
-			- filter 
+			- filter ~
 			- update and delete _/
-		- login
+		- login 
 		- product crud
+			- 
 	- User features
 		- Signup / Login
 		- add to cart
