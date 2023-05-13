@@ -47,7 +47,7 @@ $how do you become better at your craft:
 	- learn what's required on building those projects
 		- types of projects you shold build
 		basic:
-			-I've already built built those
+			-I've already built
 				- a notes app
 				- tenzies and dice game
 		advanced:

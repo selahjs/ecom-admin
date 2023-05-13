@@ -8,11 +8,18 @@ const reducerFn = (state={username:"username", password:"", message: "", shouldS
         password: "123",
     }
     if(action.type === 'LOGIN'){
-        if(user.username == action.payload.username && user.password==action.payload.password){
-            state = {...state, message:"correct username & password"}
-        }else{
-            state = {...state, message:"incorrect"}
-        }
+        // if(user.username == action.payload.username && user.password==action.payload.password){
+        //     state = {...state, message:"correct username & password"}
+        // }else{
+        //     state = {...state, message:"incorrect"}
+        // }
+        fetch('http://localhost:4000/api/user/login', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({email:action.payload.username, password:action.payload.password})
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
     if(action.type === 'LOGOUT'){
         console.log('logged out')
