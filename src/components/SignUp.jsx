@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { Card, Label, TextInput, Button, Checkbox } from "flowbite-react";
 
-const Login = (props) => {
+const SignUp = (props) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -65,8 +64,8 @@ const Login = (props) => {
           <Button type="submit">Submit</Button>
           {message && <p className="text-center text-green-400 border border-green-400 rounded-md">{message}</p>}
         </form>
-        <p className="mt-5 text-center">Forgot your password? <Link to="#forgotpassowrd">Click here</Link></p>
-        <p className="mt-5 text-center"><Link to="/signup">Create an Account</Link></p>
+        <p className="mt-5 text-center">Forgot your password? <a href="/forgot-password">Click here</a></p>
+        <p className="mt-5 text-center">Already have an account? <a href="/forgot-password">Login</a></p>
       </Card>
     </div>
   );
