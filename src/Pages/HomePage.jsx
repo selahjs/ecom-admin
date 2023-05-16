@@ -15,7 +15,7 @@ const HomePage = () => {
   }, [])
 
   function getData(){
-    fetch('http://localhost:3002/')
+    fetch('http://localhost:3001/')
     .then(res => res.json())
     .then(data => {
       setProducts(data)

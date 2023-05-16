@@ -1,22 +1,32 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 
 import Login from '../components/Login'
 
 const LoginPage = () => {
+  const [user, setUser] = useState({})
+  const [error, setError] = useState('')
 
-  useEffect(()=>{
-    fetch('http://localhost:4000/api/user/login', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({email:'sjemal99@gmail.com', password:'Pa$$w0rd'})
-  })
-      .then(res => res.json())
-      .then(data => console.log(data))
-  }, [])
+  const login = async  (event ,user) => {
+    event.preventDefault()
+    const response = await fetch('http://localhost:3001/api/user/login', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify(user)
+        })
+    const json = await response.json()
+
+    if(response.ok){
+      setUser(json)
+      setError(null)
+      console.log('successfully logged in!')
+    }else{
+      setError(json.error)
+    }
+  }
   return (
     <>
       <div className='flex item-center justify-center my-20'>
-        <Login />
+        <Login login={login} error={error}/>
       </div>
     </>
   )
