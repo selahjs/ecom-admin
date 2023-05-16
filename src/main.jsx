@@ -6,6 +6,8 @@ import store from "./store/store";
 
 import App from './App'
 import LoginPage from "./Pages/LoginPage"
+import SignUp from "./components/SignUp"
+import ForgotPassword from "./components/ForgotPassword"
 import ErrorPage from "./error-page";
 import CheckoutPage from "./Pages/CheckoutPage";
 import Cart from './components/Cart';
@@ -27,6 +29,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route index element={<App/>}/>
             <Route path="/admin" element={<Admin />}/>
             <Route path="/login" element={<LoginPage />}/>
+            <Route path="/signup" element={<SignUp />}/>
+            <Route path="/forgotpassowrd" element={<ForgotPassword />}/>
             <Route path="/cart" element={<Cart />}/>
             <Route path="/checkout" element={<CheckoutPage />}/>
             <Route path="/productDetailt" element={<ProductDetail />}/>

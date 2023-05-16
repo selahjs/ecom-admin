@@ -26,8 +26,8 @@ const Login = (props) => {
   return (
     <div className="w-1/3">
       <Card>
-        <h5 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
-          Sign in
+        <h5 className="text-center mb-2 text-3xl font-bold text-gray-900 dark:text-white">
+          Log in
         </h5>
         <form className="flex flex-col gap-4" onSubmit={(event)=> props.login(event, user)}>
           <div>
@@ -65,8 +65,8 @@ const Login = (props) => {
           <Button type="submit">Submit</Button>
           {message && <p className="text-center text-green-400 border border-green-400 rounded-md">{message}</p>}
         </form>
-        <p className="mt-5 text-center">Forgot your password? <Link to="#forgotpassowrd">Click here</Link></p>
-        <p className="mt-5 text-center"><Link to="/signup">Create an Account</Link></p>
+        <p className="mt-2 text-center"><Link to="/forgotpassowrd"> Forgot your password? </Link></p>
+        <p className="mt-2 text-center"><Link to="/signup" className="text-green-500">Create an Account.</Link></p>
       </Card>
     </div>
   );
