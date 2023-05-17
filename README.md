@@ -4,4 +4,6 @@
   - A Storefront
   - A backedn to manage website logic
 ## info
-  - it is a personal website built with react, redux and fetch api
+  - it is a personal project currently under development
+  ### Main Frameworks and libs
+  - react, redux, fetch, expressJs and NodeJs
