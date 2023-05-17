@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 
 import App from './App'
+import PopularItems from './Pages/PopularItems'
 import LoginPage from "./Pages/LoginPage"
 import SignUp from "./components/SignUp"
 import ForgotPassword from "./components/ForgotPassword"
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="*" element={<ErrorPage/>}/>
           <Route path="/" element={<Layout />}>
             <Route index element={<App/>}/>
+            <Route path="/popular" element={<PopularItems/>}/>
             <Route path="/login" element={<LoginPage />}/>
             <Route path="/signup" element={<SignUp />}/>
             <Route path="/forgotpassowrd" element={<ForgotPassword />}/>

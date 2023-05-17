@@ -21,12 +21,12 @@ export default function NavbarC() {
         </Link>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        {loggedIn && <h3>{username}</h3> }
-        <Link to="#" >
-          Popular
-        </Link>
+        {loggedIn && <h3 className="text-blue-600">{username}</h3> }
         <Link to="#" >
           Categories
+        </Link>
+        <Link to="/popular" >
+          Popular
         </Link>
         {loggedIn && <Link to="/admin">Admin</Link>}
         <Link to="/login">
