@@ -1,6 +1,6 @@
 Ecom features
 .
-Features-Implementation
+FR and Features-Implementation
 	#Project Architecture
 	- Admin features
 		- react-Table / Admin dashboard

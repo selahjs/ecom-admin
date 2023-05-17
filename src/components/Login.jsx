@@ -63,7 +63,7 @@ const Login = (props) => {
             <Label htmlFor="remember">Remember me</Label>
           </div>
           <Button type="submit">Submit</Button>
-          {message && <p className="text-center text-green-400 border border-green-400 rounded-md">{message}</p>}
+          {message && <p className="text-center text-red-600 border border-red-400 rounded-md">{message}</p>}
         </form>
         <p className="mt-2 text-center"><Link to="/forgotpassowrd"> Forgot your password? </Link></p>
         <p className="mt-2 text-center"><Link to="/signup" className="text-green-500">Create an Account.</Link></p>

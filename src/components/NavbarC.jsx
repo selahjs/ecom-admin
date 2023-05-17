@@ -1,8 +1,10 @@
 import react from "react";
 import { Navbar, Avatar } from "flowbite-react";
 import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
 
 export default function NavbarC() {
+  const {username, loggedIn} = useSelector((state)=>state)
   return (
     <Navbar fluid={true} rounded={true}>
         <Link to="/" className="flex">
@@ -19,10 +21,14 @@ export default function NavbarC() {
         </Link>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Link to="/" >
-          Home
+        {loggedIn && <h3>{username}</h3> }
+        <Link to="#" >
+          Popular
         </Link>
-        <Link to="/admin">Admin</Link>
+        <Link to="#" >
+          Categories
+        </Link>
+        {loggedIn && <Link to="/admin">Admin</Link>}
         <Link to="/login">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -16,6 +16,7 @@ import Invoice from './components/Invoice';
 import Layout from './components/Layout';
 import './index.css'
 import Admin from './Pages/Admin';
+import AutheRequired from './components/AutheRequired';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -27,7 +28,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="*" element={<ErrorPage/>}/>
           <Route path="/" element={<Layout />}>
             <Route index element={<App/>}/>
-            <Route path="/admin" element={<Admin />}/>
             <Route path="/login" element={<LoginPage />}/>
             <Route path="/signup" element={<SignUp />}/>
             <Route path="/forgotpassowrd" element={<ForgotPassword />}/>
@@ -35,6 +35,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="/checkout" element={<CheckoutPage />}/>
             <Route path="/productDetailt" element={<ProductDetail />}/>
             <Route path="/invoice" element={<Invoice />}/>
+            <Route element={<AutheRequired />}>
+              <Route path="/admin" element={<Admin />}/>
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
