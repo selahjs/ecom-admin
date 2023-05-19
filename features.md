@@ -8,10 +8,9 @@ FR and Features-Implementation
 			- search _/
 			- sort _/
 			- filter ~
-			- update and delete _/
-		- login 
+		- login and logout
 		- product management
-			- 
+			- create, update and delete 
 	- User features
 		- Signup / Login
 		- add to cart
@@ -20,7 +19,7 @@ FR and Features-Implementation
 	- API ~ _/
 	- Routing ~ _/
 	- Pagination ~ _/
-	- search, sort, filer, categorize
+	- search, sort, filer, categorize [frontend _/][bakcend X]
 	- Authentication + Authorization
 	- Checkout and Cart
 	- Login / SignUp feature
