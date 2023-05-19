@@ -1,10 +1,15 @@
 import react from "react";
 import { Navbar, Avatar } from "flowbite-react";
 import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function NavbarC() {
   const {username, loggedIn} = useSelector((state)=>state)
+  const dispatch = useDispatch();
+
+  function logout(){
+    dispatch({type: 'LOGOUT'})
+  }
   return (
     <Navbar fluid={true} rounded={true}>
         <Link to="/" className="flex">
@@ -21,7 +26,18 @@ export default function NavbarC() {
         </Link>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        {loggedIn && <h3 className="text-blue-600">{username}</h3> }
+        {/* display username and logout button when logged in */}
+        {loggedIn && 
+        <>
+          <h3 className="text-green-600">{username}</h3> 
+          <button
+            onClick={logout} 
+            className="text-red-600 px-2  hover:text-white hover:bg-red-600 hover:rounded-md"
+          >
+            Logout
+          </button>
+        </>
+        }
         <Link to="#" >
           Categories
         </Link>

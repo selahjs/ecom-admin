@@ -21,8 +21,7 @@ const LoginPage = () => {
     if(response.ok){
       setUser(json)
       setError(null)
-      dispatch({type: 'LOGIN', payload:{username:json.username, loggedIn: true}})
-      console.log(json, 'successfully logged in!')
+      dispatch({type: 'LOGIN', payload:{username:json.username, loggedIn: true, user: json}})
       navigate("/admin")
     }else{
       setError(json.error)

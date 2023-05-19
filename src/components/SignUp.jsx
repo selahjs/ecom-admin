@@ -25,7 +25,7 @@ const SignUp = (props) => {
     if(response.ok){
       setUser(json)
       setError(null)
-      dispatch({type: 'LOGIN', payload:{username:json.username, loggedIn: true}})
+      dispatch({type: 'LOGIN', payload:{username:json.username, loggedIn: true, user: json}})
       console.log('successfully signed up!')
     }else{
       setError(json.error)

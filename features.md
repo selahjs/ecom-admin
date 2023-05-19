@@ -1,5 +1,6 @@
 Ecom features
 .
+Pa$$w0rd
 FR and Features-Implementation
 	#Project Architecture
 	- Admin features
