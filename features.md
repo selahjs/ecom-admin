@@ -9,7 +9,7 @@ FR and Features-Implementation
 			- sort _/
 			- filter ~
 		- login and logout
-		- product management
+		- Product Inventory Management
 			- create, update and delete 
 	- User features
 		- Signup / Login

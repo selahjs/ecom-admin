@@ -6,7 +6,7 @@ import Card from "../components/Cards";
 
 const HomePage = () => {
   //we get products from mockoon API
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(JSON.parse(localStorage.getItem("products")) || []);
   const [error, setError] = useState("")
   
   useEffect(()=>{
