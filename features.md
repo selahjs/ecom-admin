@@ -1,6 +1,8 @@
 Ecom features
 .
+selahjemal@gmail.com
 Pa$$w0rd
+
 FR and Features-Implementation
 	#Project Architecture
 	- Admin features
