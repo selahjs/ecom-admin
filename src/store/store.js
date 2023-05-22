@@ -9,6 +9,7 @@ const reducerFn = (
             message: "", 
             shouldSlide: false,
             loggedIn: false,
+            cartItems: [],
             cartQuantity: 0    
         }, 
         action) =>{
@@ -30,7 +31,7 @@ const reducerFn = (
         state = {...state, loggedIn:false}
     }
     if(action.type === 'UPDATE_CART'){
-        state = {...state, cartQuantity: action.payload.cartQuantity}
+        state = {...state, cartQuantity: action.payload.cartQuantity, cartItems: action.payload.cartItems}
     }
     return state
 }

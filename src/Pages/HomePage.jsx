@@ -18,7 +18,7 @@ const HomePage = () => {
 
   //the reason I used useEffect for dispatch: the cart is not updating immidiately
   useEffect(()=>{
-    dispatch({type: 'UPDATE_CART', payload: {cartQuantity: cart.length}})
+    dispatch({type: 'UPDATE_CART', payload: {cartItems: cart,cartQuantity: cart.length}})
     localStorage.setItem("cart", JSON.stringify(cart))
   }, [cart])
 
