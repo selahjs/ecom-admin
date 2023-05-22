@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Spinner, Button } from "flowbite-react";
+import { useDispatch } from "react-redux";
 
 import Hero from "../components/Hero";
 import Card from "../components/Cards";
@@ -7,13 +8,28 @@ import Card from "../components/Cards";
 const HomePage = () => {
   //we get products from mockoon API
   const [products, setProducts] = useState(JSON.parse(localStorage.getItem("products")) || []);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
+  const [cart, setCart] = useState([]);
+  const dispatch = useDispatch()
   
   useEffect(()=>{
     getData()
-    
   }, [])
 
+  //the reason I used useEffect for dispatch: the cart is not updating immidiately
+  useEffect(()=>{
+    dispatch({type: 'UPDATE_CART', payload: {cartQuantity: cart.length}})
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
+
+  function addToCart(product){
+    setCart(prevCart=>{
+      return [
+        ...prevCart,
+        product
+      ]
+    })
+  }
   function getData(){
     fetch('http://localhost:3001/')
     .then(res => res.json())
@@ -34,7 +50,7 @@ const HomePage = () => {
 
   // Card Element
   const productElemnts = products.map((product)=>(
-    <Card key={product.id} data={product}/>
+    <Card key={product.id} data={product} addToCart={addToCart}/>
   ))
   return (
     <>

@@ -4,9 +4,6 @@ import { Link } from "react-router-dom"
 
 const Cards = (props) => {
   const data = props.data;
-  //add to cart
-  //count quantity of product
-  //quantity, name, image, price
   return (
     <div className="w-1/2 sm:w-1/3 lg:w-1/4 my-5"> 
     {/* https://tailwindcss.com/docs/width */}
@@ -43,7 +40,7 @@ const Cards = (props) => {
             ${data.productPrice}
           </span>
           <button
-            href="#"
+            onClick={()=> props.addToCart(data)}
             className="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Add to cart

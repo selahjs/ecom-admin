@@ -1,12 +1,11 @@
 import react from "react";
-import { Navbar, Avatar } from "flowbite-react";
+import { Navbar } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function NavbarC() {
-  const { username, loggedIn } = useSelector((state) => state);
+  const { username, loggedIn, cartQuantity } = useSelector((state) => state);
   const dispatch = useDispatch();
-
   function logout() {
     dispatch({ type: "LOGOUT" });
   }
@@ -65,7 +64,7 @@ export default function NavbarC() {
               <div className="relative py-0">
                 <div className="t-0 absolute left-3">
                   <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">
-                    3
+                    {cartQuantity}
                   </p>
                 </div>
                 <svg

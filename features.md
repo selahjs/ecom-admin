@@ -39,3 +39,18 @@ User-Interface (UI)
         - cart page _/
 	- Invoice page on new page _/
 	- Login / SignUp Page _/
+
+
+- when add to cart is clicked cart should be updated based on condition
+	- if the same cart is added toast a message product is already added to cart click to modify quantity
+	- when modifying quantity based on id
+cart = [
+	{
+		id
+		quantity
+		name
+		price
+		image
+	}
+]
+- cart should be controlled in home page
