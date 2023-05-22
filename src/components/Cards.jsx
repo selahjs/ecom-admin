@@ -4,6 +4,9 @@ import { Link } from "react-router-dom"
 
 const Cards = (props) => {
   const data = props.data;
+  //add to cart
+  //count quantity of product
+  //quantity, name, image, price
   return (
     <div className="w-1/2 sm:w-1/3 lg:w-1/4 my-5"> 
     {/* https://tailwindcss.com/docs/width */}
